@@ -1,0 +1,9 @@
+.vscode
+manim_speech.egg-info/
+__pycache__
+.env
+.DS_Store
+media/
+tts-out/
+*.mp3
+media/
