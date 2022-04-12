@@ -79,9 +79,108 @@ self.play(Write(demo_code), run_time=tracker.duration)''',
         self.play(FadeOut(circle))
         self.wait_for_voiceover()
 
+        self.add_voiceover_text("""Let's see how the API works!""")
+        demo_code2 = Code(
+            code="""class VoiceoverDemo(VoiceoverScene):
+    def construct(self):
+        self.init_voiceover(AzureTTSConfig(
+            voice="en-US-AriaNeural",
+            style="newscast-casual",
+            global_speed=1.15
+        ))
+        circle = Circle()
+
+        self.add_voiceover_text("This circle is drawn as I speak.")
+        self.play(Create(circle))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text("Let's shift it to the left 2 units.")
+        self.play(circle.animate.shift(2 * LEFT))
+        self.wait_for_voiceover()""",
+            insert_line_no=False,
+            style=code_style,
+            background="window",
+            font="Consolas",
+            language="python",
+        ).rescale_to_fit(12, 0)
+
+        self.play(FadeIn(demo_code2.background_mobject))
+        self.wait_for_voiceover()
+
         self.add_voiceover_text(
-            """You can find this demo in the GitHub repo shown on your screen."""
+            """First, we create a scene using the Voiceover Scene class from the plugin."""
         )
+        self.play(FadeIn(demo_code2.code[:2]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """Then, we initialize the voiceover by giving it the appropriate settings. In this example, we use Azure Text-to-speech."""
+        )
+        self.play(FadeIn(demo_code2.code[2]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """We use the English speaking neural voice called Aria."""
+        )
+        self.play(FadeIn(demo_code2.code[3]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text("""We use the style called "newscast casual".""")
+        self.play(FadeIn(demo_code2.code[4]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """Finally, we give an option to speed up the voiceover playback fifteen percent, because the default is a bit too slow."""
+        )
+        self.play(FadeIn(demo_code2.code[5:7]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """With the configuration out of the way, it is time to animate."""
+        )
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text("""Let's initialize the circle object.""")
+        self.play(FadeIn(demo_code2.code[7:8]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """Then, we need to tell the scene to start narrating."""
+        )
+        self.play(FadeIn(demo_code2.code[9]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """It needs to come before the animation, due to how the renderer logic works."""
+        )
+        self.play(FadeIn(demo_code2.code[10]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """Finally, we use a function called "wait for voiceover", which makes the animation halt until the voiceover playback is finished."""
+        )
+        self.play(FadeIn(demo_code2.code[11]))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """This is extremely convenient, and let's you chain voiceovers back to back without having to think how long they are."""
+        )
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text(
+            """We just need to repeat the same pattern of adding the voiceover, playing, and waiting for the voiceover to finish."""
+        )
+        self.play(FadeIn(demo_code2.code[13:]))
+        self.wait_for_voiceover()
+        self.wait()
+
+        self.add_voiceover_text(
+            """You can use this Manim plugin to generate voiceovers for your own projects."""
+        )
+        self.play(FadeOut(demo_code2))
+        self.wait_for_voiceover()
+
+        self.add_voiceover_text("""Check out the GitHub repo shown on your screen.""")
         self.play(FadeIn(Tex("https://github.com/MathBlocks/manim-speech")))
         self.wait_for_voiceover()
 
