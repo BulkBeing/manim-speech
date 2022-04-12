@@ -9,5 +9,12 @@ setup(
     author="prism0x",
     author_email="",
     url="",
+    install_requires=[
+        "manim",
+        "sox",
+        "azure-cognitiveservices-speech",
+        "python-dotenv",
+        "pygments",
+    ],
     packages=["manim_speech"],
 )

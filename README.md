@@ -6,6 +6,20 @@ It currently supports [Azure Text to Speech](https://azure.microsoft.com/en-us/s
 
 ## Install
 
+This plugin requires that [SoX](http://sox.sourceforge.net/) version 14.4.2 or higher is installed.
+
+To install SoX on Mac with Homebrew:
+
+```brew install sox```
+
+On Debian based distros:
+
+```sudo apt-get install sox```
+
+or install [from source](https://sourceforge.net/projects/sox/files/sox/).
+
+Once SoX is installed, proceed with installing `manim-speech`:
+
 ```sh
 python setup.py install
 ```
